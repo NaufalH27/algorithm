@@ -1,7 +1,7 @@
 testCase = [2, 3, 20, 4, 6, 2, 1, 4, 693, 31, 4, 4]
 
 def bubbleSort(array : list) -> list:
-    arraySize = len(array)
+    arraySize : int = len(array)
     
     for i in range(arraySize):
         for j in range(0, arraySize-i-1):
