@@ -1,6 +1,6 @@
 
-#array need to be sorted
-sortedArray = [1,2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13]
+#test case array need to be sorted
+testCase = [1,2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13]
 target = 12
 
 
@@ -21,4 +21,4 @@ def binarySearch(sortedArray : list, target : int) -> int:
     return -1
 
 
-print(binarySearch(sortedArray, target))
+print(binarySearch(testCase, target))
