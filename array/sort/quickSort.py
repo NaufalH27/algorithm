@@ -1,30 +1,35 @@
-testCase1 = [2, 3, 4, 4, 6, 2, 4, 4, 693, 31, 10, 20]
-testCase2 = [2, 3, 20, 4, 6, 20, 10, 4, 693, 31, 4]
-testCase3 = [3, 2, 8, 1, 5]
+testCase2 = [40,3,2,14,15,39,10,4,32,1,5,9,8,23,49,7,9,25] 
 
-def partition(array : list) -> list :
-    arraySize = len(array)
-    pivot = 0
-    left = 0
-    right = arraySize - 1
-    print(array[pivot])
-    
-    while left <= right :
-        while array[left] < array[pivot]:
-            left += 1
-        while array[right] > array[pivot]:
-            right -= 1
 
-        if left <= right:
-            array[left], array[right] = array[right], array[left]
+def partition(array, leftPtr, rightPtr) -> int:
+    print(array)
+    print("")
+    pivot = array[leftPtr] 
+    low = leftPtr + 1
+    high = rightPtr
+
+    while True:
+        while low <= high and array[high] >= pivot:
+            high -= 1
+        while low <= high and array[low] <= pivot:
+            low += 1
         
-        
-        left += 1
-        right -= 1
+        if low <= high:
+            array[low], array[high] = array[high], array[low] 
+        else:
+            break
+
+    array[leftPtr], array[high] = array[high], array[leftPtr] 
+    return high  
+
+def quick_sort(array, left, right):
+
+    if left < right:
+        j = partition(array,left, right)
+        quick_sort(array, left, j-1)
+        quick_sort(array, j+1, right)
     
     return array
 
 
-print(quicksort(testCase1))
-print(quicksort(testCase2))
-print(quicksort(testCase3))
+print(quick_sort(testCase2,0, len(testCase2) -1))
